@@ -5,16 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import {
-  LayoutDashboard,
-  MessageSquare,
-  ImageIcon,
-  VideoIcon,
-  Music,
-  Code,
-  Settings,
-} from "lucide-react";
-import FreeCounter from "./FreeCounter";
+import { LayoutDashboard } from "lucide-react";
+import { tools } from "@/constants";
 
 const routes = [
   {
@@ -23,51 +15,12 @@ const routes = [
     href: "/dashboard",
     color: "text-sky-500",
   },
-  {
-    label: "Conversation",
-    icon: MessageSquare,
-    href: "/conversation",
-    color: "text-violet-500",
-  },
-  {
-    label: "Image Generation",
-    icon: ImageIcon,
-    href: "/image",
-    color: "text-pink-700",
-  },
-  {
-    label: "Video Generation",
-    icon: VideoIcon,
-    href: "/video",
-    color: "text-orange-700",
-  },
-  {
-    label: "Music Generation",
-    icon: Music,
-    href: "/music",
-    color: "text-emerald-500",
-  },
-  {
-    label: "Code Generation",
-    icon: Code,
-    href: "/code",
-    color: "text-green-700",
-  },
-  {
-    label: "Settings",
-    icon: Settings,
-    href: "/settings",
-  },
+  ...tools,
 ];
 
 const monstserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
-interface SidebarProps {
-  apiLimitCount: number;
-  isPro: boolean;
-}
-
-const Sidebar = ({ apiLimitCount = 0, isPro = false }: SidebarProps) => {
+const Sidebar = () => {
   const pathname = usePathname();
   return (
     <div className="space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white">
@@ -77,7 +30,7 @@ const Sidebar = ({ apiLimitCount = 0, isPro = false }: SidebarProps) => {
             <Image alt="Logo" src="/logo.png" fill />
           </div>
           <h1 className={cn("text-2xl font-bold", monstserrat.className)}>
-            ThinkTank
+            FileMorph
           </h1>
         </Link>
         <div className="space-y-1">
@@ -100,7 +53,6 @@ const Sidebar = ({ apiLimitCount = 0, isPro = false }: SidebarProps) => {
           ))}
         </div>
       </div>
-      <FreeCounter apiLimitCount={apiLimitCount} isPro={isPro} />
     </div>
   );
 };
