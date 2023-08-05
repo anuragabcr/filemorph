@@ -17,7 +17,7 @@ export const tools = [
   {
     label: "Image Resize",
     icon: ImageIcon,
-    href: "/img-resive",
+    href: "/img-resize",
     color: "text-pink-700",
     bgColor: "bg-pink-700/10",
   },
@@ -31,7 +31,7 @@ export const tools = [
   {
     label: "File Resize",
     icon: FileIcon,
-    href: "/file-resive",
+    href: "/file-resize",
     color: "text-emerald-500",
     bgColor: "bg-emerald-500/10",
   },
